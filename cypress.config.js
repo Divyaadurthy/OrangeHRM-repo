@@ -1,6 +1,8 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
+  
   e2e: {
     baseUrl:"https://opensource-demo.orangehrmlive.com",
     defaultCommandTimeout:20000,
@@ -8,8 +10,22 @@ module.exports = defineConfig({
     //viewportHeight:1920,
    // viewportWidth:1080,
     retries:{openMode:3, runMode:2},
-    video:true,
-    setupNodeEvents(on, config) {
+   
+    
+    env:{
+      username:"Raju",
+      password:"admin123",
+
+     },
+     video:true,
+     setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+
+     
+
+     
+
+     
    
   
      

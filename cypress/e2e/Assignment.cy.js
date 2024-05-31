@@ -1,13 +1,11 @@
-import logindata  from "../fixtures/admin/login.json";
-import jobdata from "../fixtures/admin/jobtitle.json";
+import logindata from '../fixtures/admin/login.json'
+import jobdata from '../fixtures/admin/jobtitle.json'
 
 describe.only('Admin Funtionality', () => {
   it(' Verify Adding Job with Valid Data', () => {
-   // cy.viewport('ipad-2')
+    // cy.viewport('ipad-2')
     //Login in to the Website
-    cy.visit(
-      '/web/index.php/auth/login',
-    )
+    cy.visit('/web/index.php/auth/login')
     cy.get('input[name="username"]').type(logindata.username)
     cy.get('input[type="password"]').type(logindata.password)
     cy.get('button[type="submit"]').click()
@@ -28,8 +26,10 @@ describe.only('Admin Funtionality', () => {
     //  Validating Toast Success message
 
     cy.contains('Add').click()
-    let randomText = (Math.random() + 1).toString(36).substring(7);
-    cy.get(':nth-child(2) > .oxd-input').click().type(jobdata.jobtitle+randomText)
+    let randomText = (Math.random() + 1).toString(36).substring(7)
+    cy.get(':nth-child(2) > .oxd-input')
+      .click()
+      .type(jobdata.jobtitle + randomText)
     cy.get("textarea[placeholder='Type description here']")
       .click()
       .type(jobdata.jobdescription)
@@ -42,9 +42,7 @@ describe.only('Admin Funtionality', () => {
 
   it('Verify Adding Pay Grades with Valid Data', () => {
     //Login in to the Website
-    cy.visit(
-      '/web/index.php/auth/login',
-    )
+    cy.visit('/web/index.php/auth/login')
     cy.get('input[name="username"]').type(logindata.username)
     cy.get('input[type="password"]').type(logindata.password)
     cy.get('button[type="submit"]').click()
@@ -62,8 +60,10 @@ describe.only('Admin Funtionality', () => {
     // Enter Data for Pay Grades
 
     cy.contains('Add').click()
-    let randomText = (Math.random() + 1).toString(36).substring(7);
-    cy.get(':nth-child(2) > .oxd-input').click().type(jobdata.jobtitle+randomText)
+    let randomText = (Math.random() + 1).toString(36).substring(7)
+    cy.get(':nth-child(2) > .oxd-input')
+      .click()
+      .type(jobdata.jobtitle + randomText)
     cy.get("button[type='submit']").click()
     //cy.contains('Success').should('be.visible')
   })
