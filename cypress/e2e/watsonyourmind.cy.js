@@ -2,7 +2,7 @@ import logindata from '../fixtures/admin/login.json'
 
 describe.only('Buzz Module Verification', () => {
   it('verify user can do a posting in whats on your mind', () => {
-   // cy.viewport('iphone-x')
+    // cy.viewport('iphone-x')
     cy.visit(
       'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
     )
